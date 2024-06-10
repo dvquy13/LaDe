@@ -1,5 +1,5 @@
 dtaidistance==2.3.10
-geopandas=0.6.1=py_0
+geopandas==0.6.1
 numpy==1.21.5
 tqdm==4.64.0
 pytorch==1.10.2
