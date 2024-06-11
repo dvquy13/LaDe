@@ -186,8 +186,9 @@ class BaseTrainer():
         if not os.path.exists(save_path):
             os.makedirs(save_path)
         filename = 'final_model_{}.pt'.format(n_exp)
-        torch.save(self.model.state_dict(), os.path.join(save_path, filename))
-        return True
+        save_filepath = os.path.join(save_path, filename)
+        torch.save(self.model.state_dict(), save_filepath)
+        return save_filepath
 
     def load_model(self, epoch, save_path, n_exp):
         filename = 'final_model_{}.pt'.format(n_exp)

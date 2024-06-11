@@ -1,6 +1,6 @@
 ## Run
 
-1. Place the raw data CSV file in the `./data` directory.
+1. Place the raw data CSV file in the `-m data` directory.
 
 2. Run the following code to generate the dataset and adjacency metrics:
 
@@ -14,19 +14,20 @@
 Please execute the following commands to run different models:
 
 ```bash
-    python ./experiments/agcrn/main.py
+    # Run python using module command to be able to import src
+    python -m experiments.agcrn.main
 
-    python ./experiments/astgcn/main.py
+    python -m experiments.astgcn.main
 
-    python ./experiments/gwnet/main.py
+    python -m experiments.gwnet.main
 
-    python ./experiments/mtgnn/main.py
+    python -m experiments.mtgnn.main
 
-    python ./experiments/stgcn/main.py
+    python -m experiments.stgcn.main
 
-    python ./experiments/stgncde/main.py
+    python -m experiments.stgncde.main
 
-    python ./experiments/dcrnn/main.py
+    python -m experiments.dcrnn.main
 ```
 
 # Leaderboard

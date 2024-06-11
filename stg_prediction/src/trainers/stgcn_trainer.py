@@ -34,9 +34,15 @@ class STGCN_Trainer(BaseTrainer):
 
         if filter_type == "identity":
             supports = np.diag(np.ones(new_adj.shape[0])).astype(np.float32)
-            supports = Tensor(supports).cuda()
+            if self.device.type == 'cpu':
+                supports = Tensor(supports)
+            else:
+                supports = Tensor(supports).cuda()
         else:
             scaled_adj = graph_algo.calculate_scaled_laplacian(new_adj).todense()
             cheb_poly_adj = graph_algo.calculate_cheb_poly(scaled_adj, 3)
-            supports = Tensor(cheb_poly_adj).cuda()
+            if self.device.type == 'cpu':
+                supports = Tensor(cheb_poly_adj)
+            else:
+                supports = Tensor(cheb_poly_adj).cuda()
         return supports
